@@ -1,0 +1,29 @@
+Phase 2 model summary
+This document is meant to be a summary of the models used on the Phase 2 data. Provide the following details for EACH sub-challenge within “Summary-Phase2.txt”
+
+------------------------------
+Summary-Phase2-Sub-challenge-1
+------------------------------
+Provide information on model settings and parameters used:
+
+The model fitted on Phase 1 data is applied to Phase 2 data to make predictions. No special settings or paramaters are used in Phase 2 prediction.
+
+Specifically, the stacked tree model built from Phase 1 described in Summary-Phase1.txt for subchallenge 1 is applied to the same 12 selected gene expression features and 4 clinical phenotype features of the Phase 2 data.
+
+------------------------------
+Summary-Phase2-Sub-challenge-2
+------------------------------
+Provide information on model settings and parameters used:
+
+The model fitted on the Phase 1 data is applied to Phase 2 data to make predictions. No special settings or paramaters are used in Phase 2 prediction.
+
+Specifically, the lightgbm model built from Phase 1 described in Summary-Phase1.txt for subchallenge 2 is applied to the same 7 selected CNV features and 4 clinical phenotype features of the Phase 2 data.
+
+------------------------------
+Summary-Phase2-Sub-challenge-3
+------------------------------
+Provide information on model settings and parameters used:
+
+The model fitted on the Phase 1 data is applied to Phase 2 data to make predictions. No special settings or paramaters are used in Phase 2 prediction.
+
+Specifically, the lightgbm model built from Phase 1 described in Summary-Phase1.txt for subchallenge 3 is applied to the same 6 selected features and 4 clinical phenotype features of the Phase 2 data.

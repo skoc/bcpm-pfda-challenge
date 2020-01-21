@@ -1,0 +1,212 @@
+Phase 1 model summary
+This document is meant to be a summary of the models used on the Phase 1 data.
+Provide the following details for EACH sub-challenge within “Summary-Phase1.txt”
+------------------------------
+Summary-Phase1-Sub-challenge-1
+------------------------------
+a) Provide a description of model settings and parameters, and details of model building including dataset(s) description(s) used for training, cross validation and testing (number of samples, number of features, etc.)
+
+All 377 samples provided by subchallenge 1 are used to build the following models in our solution.
+
+1. Feature selection. We used the l0-regularized logistic regression method proposed in Hazimeh and Mazumder (2018) <arXiv:1803.01454> implemented by the R package L0Learn (https://cran.r-project.org/package=L0Learn). The method builds a regularized logistic regression model with the l0 penalty and can approximately select a best subset of variables from the gene expression data. Key parameters include:
+
+- maxSuppSize: 20. The maximum support size at which to terminate the regularization path.
+
+2. Parameter tuning for predictive modeling. We used grid search and 5-fold cross-validation to find the optimal set of parameters for three implementations of the gradient boosting decision tree (GBDT) models: xgboost (Chen and Guestrin, 2016), lightgbm (Ke et al., 2017), and catboost (Prokhorenkova et al., 2018). The parameter grid is:
+
+- xgboost
+  - nrounds = 10, 50, 100, 200, 500, 1000
+  - max_depth = 2, 3, 4, 5
+  - learning_rate = 0.001, 0.01, 0.02, 0.05, 0.1
+- lightgbm
+  - num_iterations = 10, 50, 100, 200, 500, 1000
+  - max_depth = 2, 3, 4, 5
+  - learning_rate = 0.001, 0.01, 0.02, 0.05, 0.1
+- catboost
+  - iterations = 10, 50, 100, 200, 500, 1000
+  - depth = 2, 3, 4, 5
+
+All 4 clinical phenotype features are concatenated with the 12 gene expression features to train the models in this step.
+
+3. Predictive modeling. With the optimal set of parameters from the last step as input for the boosted tree models, we first implemented a two-layer model stacking algorithm (Wolpert, 1992). The first layer ensembles the boosted tree models built by xgboost, lightgbm, and catboost. The second layer is a logistic regression that automatically decides the weight of the predictions from the first layer of models. We compared the performance between the stacked tree model, single xgboost model, single lightgbm model, and single catboost model. We decided to use the stacked tree model for this subchallenge.
+
+All 4 clinical phenotype features are concatenated with the 12 gene expression features to train the models in this step.
+
+b) Short listed features selected by the model
+
+Selected gene expression features:
+
+ACTA1, BMP5, CCT8L2, CRH, DSCR4, ELMO2, EMB, EPOR, MTHFD1, SRPK2, SYCP2, UBXN1
+
+Clinical phenotype features used to build the predictive model with the selected gene expression features:
+
+SEX, RACE, WHO_GRADING, CANCER_TYPE
+
+c) Link to complete code in a public GitHub repository
+
+https://github.com/skoc/bcpm-pfda-challenge
+
+d) Confusion matrix indicating number of predictions, true positives, false positives, true negatives, and false negatives
+
+This is the confusion matrix of the prediction results of the final predictive model on the entire training set.
+
+Confusion Matrix
+      0   1
+  0  49   0
+  1   2 326
+
+e) Overall accuracy
+
+0.9947
+
+f) Specificity
+
+1.0000
+
+g) Sensitivity
+
+0.9608
+
+h) Area under the curve (AUC)
+
+1.0000
+
+------------------------------
+Summary-Phase1-Sub-challenge-2
+------------------------------
+a) Provide a description of model settings and parameters, and details of model building including dataset(s) description(s) used for training, cross validation and testing (number of samples, number of features, etc.)
+
+All 174 samples provided by subchallenge 2 are used to build the following models in our solution.
+
+1. Feature selection. We used the l0-regularized logistic regression method proposed in Hazimeh and Mazumder (2018) <arXiv:1803.01454> implemented by the R package L0Learn (https://cran.r-project.org/package=L0Learn). The method builds a regularized logistic regression model with the l0 penalty and can approximately select a best subset of variables from the CNV data. Key parameters include:
+
+- maxSuppSize: 20. The maximum support size at which to terminate the regularization path.
+
+2. Parameter tuning for predictive modeling. We used grid search and 5-fold cross-validation to find the optimal set of parameters for three implementations of the gradient boosting decision tree (GBDT) models: xgboost (Chen and Guestrin, 2016), lightgbm (Ke et al., 2017), and catboost (Prokhorenkova et al., 2018). The parameter grid is:
+
+- xgboost
+  - nrounds = 10, 50, 100, 200, 500, 1000
+  - max_depth = 2, 3, 4, 5
+  - learning_rate = 0.001, 0.01, 0.02, 0.05, 0.1
+- lightgbm
+  - num_iterations = 10, 50, 100, 200, 500, 1000
+  - max_depth = 2, 3, 4, 5
+  - learning_rate = 0.001, 0.01, 0.02, 0.05, 0.1
+- catboost
+  - iterations = 10, 50, 100, 200, 500, 1000
+  - depth = 2, 3, 4, 5
+
+All 4 clinical phenotype features are concatenated with the 7 CNV features to train the models in this step.
+
+3. Predictive modeling. With the optimal set of parameters from the last step as input for the boosted tree models, we first implemented a two-layer model stacking algorithm (Wolpert, 1992). The first layer ensembles the boosted tree models built by xgboost, lightgbm, and catboost. The second layer is a logistic regression that automatically decides the weight of the predictions from the first layer of models. We compared the performance between the stacked tree model, single xgboost model, single lightgbm model, and single catboost model. We decided to use the lightgbm model for this subchallenge.
+
+All 4 clinical phenotype features are concatenated with the 7 CNV features to train the models in this step.
+
+b) Short listed features selected by the model
+
+Selected CNV features:
+
+3q13.12, 5q21.2, 8q24.13, 9p21.3, 10p11.1, 12q14.1, 21q11.1
+
+Clinical phenotype features used to build the predictive model with the selected CNV features:
+
+SEX, RACE, WHO_GRADING, CANCER_TYPE
+
+c) Link to complete code in a public GitHub repository
+
+https://github.com/username/bcpm-l0learn
+
+d) Confusion matrix indicating number of predictions, true positives, false positives, true negatives, and false negatives
+
+This is the confusion matrix of the prediction results of the final predictive model on the entire training set.
+
+Confusion Matrix
+      0   1
+  0  30   7
+  1  13 124
+
+e) Overall accuracy
+
+0.8851
+
+f) Specificity
+
+0.9466
+
+g) Sensitivity
+
+0.6977
+
+h) Area under the curve (AUC)
+
+0.9466
+
+------------------------------
+Summary-Phase1-Sub-challenge-3
+------------------------------
+a) Provide a description of model settings and parameters, and details of model building including dataset(s) description(s) used for training, cross validation and testing (number of samples, number of features, etc.)
+
+All 166 samples provided by subchallenge 3 are used to build the following models in our solution.
+
+1. Feature selection. We used the l0-regularized logistic regression method proposed in Hazimeh and Mazumder (2018) <arXiv:1803.01454> implemented by the R package L0Learn (https://cran.r-project.org/package=L0Learn). The method builds a regularized logistic regression model with the l0 penalty and can approximately select a best subset of variables from the gene expression + CNV data. Key parameters include:
+
+- maxSuppSize: 30. The maximum support size at which to terminate the regularization path.
+
+2. Parameter tuning for predictive modeling. We used grid search and 5-fold cross-validation to find the optimal set of parameters for three implementations of the gradient boosting decision tree (GBDT) models: xgboost (Chen and Guestrin, 2016), lightgbm (Ke et al., 2017), and catboost (Prokhorenkova et al., 2018). The parameter grid is:
+
+- xgboost
+  - nrounds = 10, 50, 100, 200, 500, 1000
+  - max_depth = 2, 3, 4, 5
+  - learning_rate = 0.001, 0.01, 0.02, 0.05, 0.1
+- lightgbm
+  - num_iterations = 10, 50, 100, 200, 500, 1000
+  - max_depth = 2, 3, 4, 5
+  - learning_rate = 0.001, 0.01, 0.02, 0.05, 0.1
+- catboost
+  - iterations = 10, 50, 100, 200, 500, 1000
+  - depth = 2, 3, 4, 5
+
+All 4 clinical phenotype features are concatenated with the 6 selected features to train the models in this step.
+
+3. Predictive modeling. With the optimal set of parameters from the last step as input for the boosted tree models, we first implemented a two-layer model stacking algorithm (Wolpert, 1992). The first layer ensembles the boosted tree models built by xgboost, lightgbm, and catboost. The second layer is a logistic regression that automatically decides the weight of the predictions from the first layer of models. We compared the performance between the stacked tree model, single xgboost model, single lightgbm model, and single catboost model. We decided to use the lightgbm model for this subchallenge.
+
+All 4 clinical phenotype features are concatenated with the 6 selected features to train the models in this step.
+
+b) Short listed features selected by the model
+
+Selected features:
+
+ARHGAP31, EMB, FBXL5, HBM, RSPO1, SYCP2
+
+Clinical phenotype features used to build the predictive model with the selected features:
+
+SEX, RACE, WHO_GRADING, CANCER_TYPE
+
+c) Link to complete code in a public GitHub repository
+
+https://github.com/username/bcpm-l0learn
+
+d) Confusion matrix indicating number of predictions, true positives, false positives, true negatives, and false negatives
+
+This is the confusion matrix of the prediction results of the final predictive model on the entire training set.
+
+Confusion Matrix
+      0   1
+  0  34   3
+  1   6 123
+
+e) Overall accuracy
+
+0.9458
+
+f) Specificity
+
+0.9762
+
+g) Sensitivity
+
+0.8500
+
+h) Area under the curve (AUC)
+
+0.9877
