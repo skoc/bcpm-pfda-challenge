@@ -1,6 +1,6 @@
-# Brain Cancer Predictive Modeling <img src="https://raw.githubusercontent.com/skoc/bcpm-pfda-challenge/master/img/pfda-participant.png" align="right" alt="logo" height="100" width="100" />
-
-<img src="https://raw.githubusercontent.com/skoc/bcpm-pfda-challenge/master/img/challenge-details.png" align="right" alt="summary" height="400" width="500" />
+# Brain Cancer Predictive Modeling and Biomarker Discovery Challenge<img src="https://raw.githubusercontent.com/skoc/bcpm-pfda-challenge/master/img/pfda-participant.png" align="right" alt="logo" height="100" width="100" />
+<br>
+<img src="https://raw.githubusercontent.com/skoc/bcpm-pfda-challenge/master/img/challenge-details.png" align="right" alt="summary" height="300" width="400" />
 
 This is my solution for the [precisionFDA Brain Cancer Predictive Modeling and Biomarker Discovery Challenge](https://precision.fda.gov/challenges/8)
 
