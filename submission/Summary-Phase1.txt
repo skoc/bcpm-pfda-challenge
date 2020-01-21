@@ -114,7 +114,7 @@ SEX, RACE, WHO_GRADING, CANCER_TYPE
 
 c) Link to complete code in a public GitHub repository
 
-https://github.com/username/bcpm-l0learn
+https://github.com/skoc/bcpm-pfda-challenge
 
 d) Confusion matrix indicating number of predictions, true positives, false positives, true negatives, and false negatives
 
@@ -184,7 +184,7 @@ SEX, RACE, WHO_GRADING, CANCER_TYPE
 
 c) Link to complete code in a public GitHub repository
 
-https://github.com/username/bcpm-l0learn
+https://github.com/skoc/bcpm-pfda-challenge
 
 d) Confusion matrix indicating number of predictions, true positives, false positives, true negatives, and false negatives
 
