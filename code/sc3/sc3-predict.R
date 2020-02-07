@@ -38,7 +38,7 @@ xtest <- as.matrix(convert_num(sc3_x_test))
 
 # make predictions
 sc3_pred <- predict(sc3_model, xtest)
-sc3_pred <- ifelse(sc3_pred > 0.5, 1L, 0L)
+sc3_pred <- ifelse(sc3_pred > 0.75, 1L, 0L)
 
 # write results for submission
 sc3_submit <- data.frame("PATIENTID" = sc3_patientid, "SURVIVAL_STATUS" = sc3_pred)

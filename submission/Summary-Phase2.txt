@@ -10,6 +10,8 @@ The model fitted on Phase 1 data is applied to Phase 2 data to make predictions.
 
 Specifically, the stacked tree model built from Phase 1 described in Summary-Phase1.txt for subchallenge 1 is applied to the same 12 selected gene expression features and 4 clinical phenotype features of the Phase 2 data.
 
+We used a calibrated decision threshold for the phase 2 prediction. The boosting tree models trained on unbalanced data can produce overly-conservative probability outputs. In light of this, we used a higher-than-default classification threshold (0.9) in this subchallenge to ensure the predicted outcome distribution match that of the training set as much as possible.
+
 ------------------------------
 Summary-Phase2-Sub-challenge-2
 ------------------------------
@@ -19,6 +21,8 @@ The model fitted on the Phase 1 data is applied to Phase 2 data to make predicti
 
 Specifically, the lightgbm model built from Phase 1 described in Summary-Phase1.txt for subchallenge 2 is applied to the same 7 selected CNV features and 4 clinical phenotype features of the Phase 2 data.
 
+We used a calibrated decision threshold for the phase 2 prediction. The boosting tree models trained on unbalanced data can produce overly-conservative probability outputs. In light of this, we used a higher-than-default classification threshold (0.8) in this subchallenge to ensure the predicted outcome distribution match that of the training set as much as possible.
+
 ------------------------------
 Summary-Phase2-Sub-challenge-3
 ------------------------------
@@ -27,3 +31,5 @@ Provide information on model settings and parameters used:
 The model fitted on the Phase 1 data is applied to Phase 2 data to make predictions. No special settings or paramaters are used in Phase 2 prediction.
 
 Specifically, the lightgbm model built from Phase 1 described in Summary-Phase1.txt for subchallenge 3 is applied to the same 6 selected features and 4 clinical phenotype features of the Phase 2 data.
+
+We used a calibrated decision threshold for the phase 2 prediction. The boosting tree models trained on unbalanced data can produce overly-conservative probability outputs. In light of this, we used a higher-than-default classification threshold (0.75) in this subchallenge to ensure the predicted outcome distribution match that of the training set as much as possible.

@@ -35,7 +35,7 @@ sc1_x2_test <- as.matrix(sc1_x2_test)
 sc1_x_test <- cbind(sc1_x1_test, sc1_x2_test)
 
 # make predictions
-sc1_pred <- stacktree_predict(sc1_model, sc1_x_test)$resp
+sc1_pred <- stacktree_predict(sc1_model, sc1_x_test, threshold = 0.9)$resp
 
 # write results for submission
 sc1_submit <- data.frame("PATIENTID" = sc1_patientid, "SURVIVAL_STATUS" = sc1_pred)

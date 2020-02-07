@@ -107,7 +107,7 @@ stacktree_train <- function(x, y, params, nfolds = 5L, seed = 2019, verbose = TR
   )
 }
 
-stacktree_predict <- function(model, xnew) {
+stacktree_predict <- function(model, xnew, threshold = 0.5) {
   nrow_xnew <- nrow(xnew)
   nfolds <- length(model$model_xgb)
 
@@ -133,7 +133,7 @@ stacktree_predict <- function(model, xnew) {
   )
 
   pred_prob <- unname(predict(model$model_glm, xnew_glm, type = "response"))
-  pred_resp <- ifelse(pred_prob > 0.5, 1L, 0L)
+  pred_resp <- ifelse(pred_prob > threshold, 1L, 0L)
 
   list("prob" = pred_prob, "resp" = pred_resp)
 }
