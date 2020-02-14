@@ -7,7 +7,7 @@
 
 This is my solution for the [precisionFDA Brain Cancer Predictive Modeling and Biomarker Discovery Challenge](https://precision.fda.gov/challenges/8)
 
-Steps that I followed in my solution:
+The main steps in my solution are as follows:
 
 - Feature selection with L0Learn 'Fast Best Subset Selection' ([Hazimeh et al., 2018](https://github.com/hazimehh/L0Learn)) for both Gene Expression and CNV data
 - Then gradient boosting decision tree models are applied as a predictive model to the selected features with l0learn
