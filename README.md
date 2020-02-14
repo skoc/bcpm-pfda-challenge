@@ -1,4 +1,7 @@
 # Brain Cancer Predictive Modeling and Biomarker Discovery Challenge<img src="https://raw.githubusercontent.com/skoc/bcpm-pfda-challenge/master/img/pfda-participant.png" align="right" alt="logo" height="100" width="100" />
+
+![License: MIT](https://img.shields.io/github/license/skoc/bcpm-pfda-challenge.svg)
+
 <br>
 <img src="https://raw.githubusercontent.com/skoc/bcpm-pfda-challenge/master/img/challenge-details.png" align="right" alt="summary" height="300" width="400" />
 
