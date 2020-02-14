@@ -3,7 +3,7 @@
 ![License: MIT](https://img.shields.io/github/license/skoc/bcpm-pfda-challenge.svg)
 
 <br>
-<img src="https://raw.githubusercontent.com/skoc/bcpm-pfda-challenge/master/img/challenge-details.png" align="right" alt="summary" height="300" width="400" />
+<img src="https://raw.githubusercontent.com/skoc/bcpm-pfda-challenge/master/img/challenge-details.png" align="right" alt="summary" height="320" width="410" />
 
 This is my solution for the [precisionFDA Brain Cancer Predictive Modeling and Biomarker Discovery Challenge](https://precision.fda.gov/challenges/8)
 
